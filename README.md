@@ -1,30 +1,24 @@
-# GitHub Profile Stats
+# gitpeek
 
-A tiny static website: enter any GitHub username and see
+Type in a GitHub username and get a quick look at their profile.
 
-- number of public repos
+**Live site:** https://cosminadotexe.github.io/gitpeek/
+
+## What it shows
+
+- how many public repos they have
 - followers and following
-- their 3 most used languages (by number of their own, non-fork repos)
-- the top repo (most stars) for each of those languages
+- their top 3 languages
+- their best repo (most stars) in each of those languages
 
-No build step, no dependencies, no backend. It calls the public GitHub REST API from the browser.
+## How it works
 
-## Run locally
+It's just HTML, CSS and JavaScript. The page asks GitHub's public API for the user's info and repos, counts which languages show up most, and picks the most-starred repo for each one. Forks don't count, only repos they made themselves.
 
-Open `index.html` in a browser, or serve the folder:
+## Running it
 
-```bash
-python -m http.server 8000
-```
+Open `index.html` in your browser. That's it.
 
-## Deploy on GitHub Pages
+## Heads up
 
-1. Push this repo to GitHub.
-2. Go to **Settings → Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**, select `main` and `/ (root)`, then Save.
-4. Your site will be live at `https://<your-username>.github.io/<repo-name>/`.
-
-## Notes
-
-- Unauthenticated GitHub API requests are limited to 60 per hour per IP. Each search uses 2+ requests (1 for the user, 1 per 100 repos).
-- Only public repos are counted.
+GitHub only lets you make 60 requests an hour without logging in, so if you search a lot you'll get a rate limit message. Wait a bit and try again.
